@@ -3,11 +3,5 @@ body {
     background-color: #333;;
 }
 
-.snake__{
-    &head {
-        background-image: url(./snake-sprite.png);
-        width: 64px;
-        height: 64px;
-        background-position: -192px 0;
-    }
-}
+//HW1: 
+//create 4 class variations for the head (direction)
