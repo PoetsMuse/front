@@ -1,5 +1,5 @@
 // import { useState } from 'react'
-import './snake.scss'
+import './style.scss'
 
 //HW2: using props.dir (destructuring and default value "up")
 //make it sot\ that the SnakeHead renders in either of the next 2 situations in index.js:
@@ -15,7 +15,7 @@ const Component = ({name, children}) => {
 
 //decorator
 const withCoordinates = (Component) => {
-    return ({top, left, ...props}) => {
+    return ({coord: {top, left}, ...props}) => {
         return (
             <div style={{top: `${top}px`, left: `${left}px`, position: 'absolute'}}>
                 <Component {...props} />
@@ -46,11 +46,17 @@ const SnakeTail = withCoordinates(
     )
 )
 
-const Snake = () => {
+const Snake = ({data: {children}}) => {
     return (
         <Component name="snake">
-            <SnakeHead top={100} left={200} name="head" dir="up" />
-            <SnakeTail top={200} left={200} name="tail" dir="up" />
+            {/* <SnakeHead top={64} left={200} name="head" dir="up" />
+            <SnakeTail top={128} left={200} name="tail" dir="up" /> */}
+            {
+                children.map( (childData, idx) => {
+                    return (childData.name === "head" && <SnakeHead key={`k-${idx}`} {...childData} />) ||
+                           (childData.name === "tail" && <SnakeTail key={`k-${idx}`} {...childData} />) 
+                })
+            }
         </Component>
     )
 }

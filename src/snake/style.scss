@@ -1,0 +1,29 @@
+@import '../utils';
+
+.snake {
+
+    @include component(
+        "head",
+        (64px 64px),
+        "./snake/snake-sprite.png",
+        (
+            "up": (-192px 0),
+            "right": (-256px 0),
+            "down": (-256px -64px),
+            "left": (-192px -64px),
+        )
+    );
+    @include component(
+        "tail",
+        (64px 64px),
+        "./snake/snake-sprite.png",
+        (
+            "up": (-192px -128px),
+            "right": (-256px -128px),
+            "down": (-256px -192px),
+            "left": (-192px -192px),
+        )
+    );
+
+}
+
