@@ -1,11 +1,13 @@
 //$size (64px 64px)
-
-@mixin component($name, $size, $background, $directions) {
+@mixin componentBox($name, $size, $background){
     .#{$name} {
         width: nth($size, 1);
         height: nth($size, 2);
         background-image: url(#{$background});
     }
+}
+
+@mixin componentDir($name, $directions){
     .dir- {
         @each $dir, $position in $directions {
             &#{$dir} {
@@ -16,4 +18,9 @@
             }
         }
     }
+}
+
+@mixin component($name, $size, $background, $directions){
+    @include componentBox($name, $size, $background);
+    @include componentDir($name, $directions);
 }

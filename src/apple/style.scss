@@ -1,0 +1,11 @@
+@import '../utils';
+
+@include componentBox(
+    "apple",
+    (64px 64px),
+    "./game/sprite.png"
+);
+
+.apple {
+    background-position: 0 -192px;
+}
